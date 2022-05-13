@@ -1,7 +1,5 @@
 import {useState} from 'react';
 
-
-
 function App(){
 
   const [total,ctotal] = useState(0);
