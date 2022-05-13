@@ -1,4 +1,4 @@
-import {useInsertionEffect, useState} from 'react';
+import {useState} from 'react';
 
 
 
@@ -7,9 +7,8 @@ function App(){
   const [total,ctotal] = useState(0);
   const [totalcomp,ctotalcomp] = useState("");
   const [firstnum,cfirstnum] = useState("");
-  const [actionto,cactionto] = useState("");
+  //const [actionto,cactionto] = useState("");
   const [afterchange,cafterchange] = useState(false);
-  const denom = ["+","-","X","/"];
   const [lock,clock] = useState(false)
   const [ulit,culit] = useState("");
 
@@ -37,7 +36,7 @@ function App(){
     ctotal(0);
     ctotalcomp("");
     cfirstnum("");
-    cactionto("");
+    //cactionto("");
     cafterchange(false);
     //const denom = ["+","-","X","/"];
     clock(false)
@@ -52,7 +51,7 @@ function App(){
         cfirstnum(total);
         clock(true);
         culit("+");
-        cactionto("add");
+        //cactionto("add");
         //ctotal(0);
         e.preventDefault();
       }
@@ -61,7 +60,7 @@ function App(){
         cfirstnum(total);
         clock(true);
         culit("-");
-        cactionto("minus");
+        //cactionto("minus");
         //ctotal(0);
         e.preventDefault();
       }
@@ -70,7 +69,7 @@ function App(){
         cfirstnum(total);
         clock(true);
         culit("X");
-        cactionto("multiply");
+        //cactionto("multiply");
         //ctotal(0);
         e.preventDefault();
       }
@@ -79,7 +78,7 @@ function App(){
         cfirstnum(total);
         clock(true);
         culit("/");
-        cactionto("divide");
+        //cactionto("divide");
         //ctotal(0);
         e.preventDefault();
       }
@@ -322,24 +321,28 @@ function App(){
       e.preventDefault();
     }else{
       if(laststring === "+"){
-        ctotalcomp(parseFloat(firstnum) + parseFloat(total)  + " +");
-        ctotal(parseFloat(firstnum) + parseFloat(total));
-        cfirstnum(parseFloat(firstnum) + parseFloat(total));
+        const totaladd = parseFloat(firstnum) + parseFloat(total);
+        ctotalcomp(totalcomp + " " +total + " +");
+        ctotal(totaladd);
+        cfirstnum(totaladd);
       }
       else if(laststring === "-"){
-        ctotalcomp(parseFloat(firstnum) - parseFloat(total)  + " -");
-        ctotal(parseFloat(firstnum) - parseFloat(total));
-        cfirstnum(parseFloat(firstnum) - parseFloat(total));
+        const totalminus = parseFloat(firstnum) - parseFloat(total);
+        ctotalcomp(totalcomp + " " +total + " -");
+        ctotal(totalminus);
+        cfirstnum(totalminus);
       }
       else if(laststring === "X"){
-        ctotalcomp(parseFloat(firstnum) * parseFloat(total)  + " X");
-        ctotal(parseFloat(firstnum) * parseFloat(total));
-        cfirstnum(parseFloat(firstnum) * parseFloat(total));
+        const totalmultiply = parseFloat(firstnum) * parseFloat(total);
+        ctotalcomp(totalcomp + " " +total + " X");
+        ctotal(totalmultiply);
+        cfirstnum(totalmultiply);
       }
       else if(laststring === "/"){
-        ctotalcomp(parseFloat(firstnum) / parseFloat(total)  + " /");
-        ctotal(parseFloat(firstnum) / parseFloat(total));
-        cfirstnum(parseFloat(firstnum) / parseFloat(total));
+        const totaldivide = parseFloat(firstnum) / parseFloat(total);
+        ctotalcomp(totalcomp + " " +total + " /");
+        ctotal(totaldivide);
+        cfirstnum(totaldivide);
       }
       cafterchange(true);
       clock(true);
@@ -369,7 +372,8 @@ function App(){
     <button onClick={numplat} value='0'>0</button>
     <button onClick={tuldok} value='.'>.</button>
     <button className='bigger-btn' onClick={equals}>=</button><br></br>
-    <div>By: Lance Allen S. Reyes</div>
+    <div>By: Lance Allen S. Reyes || 2022</div>
   </form>;
 }
 export default App;
+//version3
